@@ -1,0 +1,1 @@
+docker build -t stm32l4-dev .

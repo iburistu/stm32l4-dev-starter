@@ -1,0 +1,1 @@
+docker run --rm -d -v ${pwd}\src:/home/docker/src/ stm32l4-dev
