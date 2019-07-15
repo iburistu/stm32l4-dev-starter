@@ -1,1 +1,1 @@
-docker run --rm -d -v ${pwd}\src:/home/docker/src/ -v D:\:/home/docker/device/ stm32l4-dev
+docker run -t -d -v ${pwd}\src:/home/docker/src/ -v D:\:/home/docker/device/ stm32l4-dev
