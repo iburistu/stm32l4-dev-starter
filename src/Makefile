@@ -47,10 +47,8 @@ $(TARGET): $(OBJS)
 $(TARGET).bin: $(TARGET)
 	$(OBJCOPY) -Obinary $(TARGET) $(TARGET).bin
 
-# Flash support coming?
-#flash: $(TARGET).bin
-#	st-flash write $(TARGET).bin 0x08000000
-#	cp $(TARGET).bin $(shell mount|grep DIS_L476VG|awk '{print $$3}')
+flash: $(TARGET).bin
+	cp -f $(TARGET).bin ../device
 
 clean:
 	rm -f $(OBJS) $(TARGET) $(TARGET).bin $(TARGET).map
