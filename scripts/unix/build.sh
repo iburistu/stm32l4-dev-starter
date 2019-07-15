@@ -1,1 +1,1 @@
-docker build -t stm32l4-dev .
+docker build -t iburistu/stm32l4-dev-starter .

@@ -1,1 +1,1 @@
-﻿docker run --rm -it -v ${pwd}\src:/home/docker/src/ -v D:\:/home/docker/device/ stm32l4-dev
+﻿docker run --rm -it -v ${pwd}\src:/home/docker/src/ -v D:\:/home/docker/device/ iburistu/stm32l4-dev-starter
