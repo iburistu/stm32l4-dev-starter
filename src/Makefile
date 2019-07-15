@@ -29,7 +29,7 @@ CFLAGS = -mcpu=cortex-m4 -mthumb -O3 -Wall  \
 LDFLAGS = -u _printf_float \
 	  -Wl,-T$(LINKSCRIPT) \
 	  -static \
-          -Wl,--gc-sections $(LIBDIRS)
+	  -Wl,--gc-sections $(LIBDIRS) \
 
 
 .PHONY : all flash clean debug
