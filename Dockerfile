@@ -46,7 +46,6 @@ RUN apt-get update \
     gcc-arm-none-eabi \
     libnewlib-arm-none-eabi \
     make \
-    vim \
     && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /usr/local/stmdev /usr/local/stmdev
 # Set development work directory

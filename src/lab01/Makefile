@@ -1,10 +1,10 @@
-# STM32L4 Makefile
+TARGET=ece486_example
 
-TARGET=# Your target here
-OBJS=$(TARGET).o
-INSTALLDIR=/usr/local/stmdev/
-INCLUDE= # Optional include (if linking other files)
-ARCH=STM32L476xx
+OBJS  = ece486_example.o
+
+INSTALLDIR = /usr/local/stmdev/
+
+ARCH = STM32L476xx
 
 CC=arm-none-eabi-gcc
 LD=arm-none-eabi-ld
@@ -14,8 +14,7 @@ OBJCOPY=arm-none-eabi-objcopy
 INCDIRS = -I$(INSTALLDIR)/include -I.
 LIBDIRS = -L$(INSTALLDIR)/lib
 
-# To include libece486 support, add -lece486_$(ARCH) and -lm to LIBS 
-LIBS= -l$(ARCH) -lcmsis_dsp_$(ARCH)
+LIBS=  -lece486_$(ARCH) -l$(ARCH) -lcmsis_dsp_$(ARCH)  
 
 LINKSCRIPT = $(INSTALLDIR)/lib/$(ARCH)_FLASH.ld
 
@@ -23,15 +22,13 @@ CFLAGS = -mcpu=cortex-m4 -mthumb -O3 -Wall  \
          -fomit-frame-pointer -fno-strict-aliasing -fdata-sections \
          -include stm32l4xx_hal_conf.h -DARM_MATH_CM4 -D$(ARCH) \
          -mfpu=fpv4-sp-d16 -mfloat-abi=softfp $(INCDIRS) \
-         -fsingle-precision-constant -ffunction-sections \
-		 -specs=nano.specs -specs=nosys.specs
+         -fsingle-precision-constant -ffunction-sections
 
 LDFLAGS = -u _printf_float \
 	  -Wl,-T$(LINKSCRIPT) \
 	  -static \
-	  -Wl,--gc-sections $(LIBDIRS) \
-
-
+          -Wl,--gc-sections $(LIBDIRS)
+               
 .PHONY : all flash clean debug
 
 all: $(TARGET) $(TARGET).bin
@@ -42,13 +39,13 @@ debug : LDFLAGS += -Wl,-Map,$(TARGET).map
 debug : all
 
 $(TARGET): $(OBJS)
-	$(CC) $(INCLUDE) -o $(TARGET) $(CFLAGS) $(LDFLAGS) $(OBJS) $(LIBS)
+	$(CC)  -o $(TARGET) $(CFLAGS) $(LDFLAGS) $(OBJS) $(LIBS)
 
 $(TARGET).bin: $(TARGET)
 	$(OBJCOPY) -Obinary $(TARGET) $(TARGET).bin
 
 flash: $(TARGET).bin
-	cp -f $(TARGET).bin ../device
+	cp -f -u $(TARGET).bin ../../device/
 
 clean:
 	rm -f $(OBJS) $(TARGET) $(TARGET).bin $(TARGET).map
