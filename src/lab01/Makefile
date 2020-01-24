@@ -1,6 +1,6 @@
-TARGET=ece486_example
+TARGET = ece486_example # This must change each lab!
 
-OBJS  = ece486_example.o
+OBJS = ece486_example.o
 
 INSTALLDIR = /usr/local/stmdev/
 
