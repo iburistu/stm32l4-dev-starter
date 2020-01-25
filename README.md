@@ -1,5 +1,7 @@
 # stm32l4-dev-starter
 
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/iburistu/stm32l4-dev-starter) ![Docker Cloud Build Automation](https://img.shields.io/docker/cloud/automated/iburistu/stm32l4-dev-starter) [![Image Info](https://images.microbadger.com/badges/image/iburistu/stm32l4-dev-starter.svg)](https://microbadger.com/images/iburistu/stm32l4-dev-starter "Get your own image badge on microbadger.com")
+
 This repository is the starter I will be using to develop code for the STM32L4.  This starter uses Docker to host a slimmed down Linux environment which I will use to cross-compile code for the STM32 devices.
 
 I decided to write this Dockerfile because I hated having to dual-boot my laptop and switch between operating systems just to develop software for ARM.  I had debated using a VM to develop on, but found that to be too cumbersome and too resource heavy for my limited needs.  This solution proved to be the lightest weight and quickest to spin up.

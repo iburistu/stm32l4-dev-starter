@@ -36,6 +36,11 @@ RUN apt-get update \
     gcc-arm-none-eabi \
     libnewlib-arm-none-eabi \
     make \
+    # debug utilities that might come in handy
+    build-essential \
+    valgrind \
+    gdb \
+    ddd \
     && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /usr/local/stmdev /usr/local/stmdev
 # Set development work directory
